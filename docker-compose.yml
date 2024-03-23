@@ -12,6 +12,7 @@ services:
 
   kafka:
     image: "bitnami/kafka:latest"
+    container_name: kafka
     ports:
       - "9092:9092"
     environment:
@@ -67,6 +68,8 @@ services:
       mode: global
     volumes:
       - "vertica_data:/data"
+    networks:
+      - test-kafka
 
 volumes:
   kafka_data:

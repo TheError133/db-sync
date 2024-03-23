@@ -4,7 +4,9 @@ from _kafka import send_json_messages_to_queue
 
 if __name__ == '__main__':
     source_data = get_source_data()
+    print('Data collected')
     topic = 'test'
     send_json_messages_to_queue(topic, source_data)
+    print('Data loaded to kafka')
 
     print()
