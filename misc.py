@@ -2,9 +2,15 @@ import hashlib
 import json
 
 
-def append_hash_to_data(data: list, addtional_keys: dict = None) -> list:
+def append_hash_to_data(data: list, additional_keys: dict = None) -> list:
     """Добавление хешей данных каждой строки в данные."""
-    return [{**row, '__row_hash': make_hash_from_row_values(row)} for row in data]
+    return [
+        {
+            **row,
+            **(additional_keys or {}),
+            '__row_hash': make_hash_from_row_values(row)
+        } for row in data
+    ]
 
 
 def make_hash_from_row_values(row: dict) -> str:
