@@ -1,9 +1,7 @@
-import postgres as pg
-import vertica as ve
+from db import get_source_data
+
 
 if __name__ == '__main__':
-    sql = 'select 1 as val'
-    data_pg = pg.execute_script(sql)
-    data_ve = ve.execute_script(sql)
+    source_data = get_source_data()
 
     print()
