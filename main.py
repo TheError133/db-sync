@@ -1,7 +1,9 @@
-from postgres import execute_script
-
+import postgres as pg
+import vertica as ve
 
 if __name__ == '__main__':
-    data = execute_script('select 1 as val')
+    sql = 'select 1 as val'
+    data_pg = pg.execute_script(sql)
+    data_ve = ve.execute_script(sql)
 
     print()
